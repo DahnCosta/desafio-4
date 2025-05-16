@@ -2,24 +2,32 @@ using UnityEngine;
 
 public class CenarioInfinito : MonoBehaviour
 {
+    [SerializeField] public float velocidade = 1f;
 
-     [SerializeField] public float velocidade;
     private Vector3 posicaoInicial;
     private float tamanhoRealDaImagem;
+    private float deslocamentoAcumulado;
 
     private void Awake()
     {
+        // Armazena a posição inicial do objeto
         this.posicaoInicial = this.transform.position;
-        float tamanhoRealDaImagem = this.GetComponent<SpriteRenderer>().size.x;
+
+        // Calcula o tamanho real da imagem considerando a escala
+        float tamanhoImagem = this.GetComponent<SpriteRenderer>().size.x;
         float escala = this.transform.localScale.x;
-        this.tamanhoRealDaImagem = tamanhoRealDaImagem * escala;
+        this.tamanhoRealDaImagem = tamanhoImagem * escala;
     }
-    void Update()
+
+    private void Update()
     {
-        float deslocamento = Mathf.Repeat(this.velocidade * Time.time, this.tamanhoRealDaImagem);
+        // Acumula deslocamento ao longo do tempo
+        deslocamentoAcumulado += velocidade * Time.deltaTime;
+
+        // Usa Repeat para repetir o deslocamento quando exceder o tamanho da imagem
+        float deslocamento = Mathf.Repeat(deslocamentoAcumulado, tamanhoRealDaImagem);
+
+        // Atualiza a posição do objeto
         this.transform.position = this.posicaoInicial + Vector3.left * deslocamento;
     }
-
-    
-
 }

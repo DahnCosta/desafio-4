@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      chao_tela_de_jogo - Copia_0: 9011400511569889901
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
