@@ -3,11 +3,15 @@ using UnityEngine;
 public class RepetirChao : MonoBehaviour
 {
     private GameController _gameController;
-    public bool _chaoInstanciado = false;
+    private bool _chaoInstanciado = false;
 
     void Start()
     {
         _gameController = FindFirstObjectByType<GameController>();
+        if (_gameController == null)
+        {
+            Debug.LogError("GameController não encontrado na cena!");
+        }
     }
 
     void Update()
@@ -17,11 +21,12 @@ public class RepetirChao : MonoBehaviour
             if (transform.position.x <= 0)
             {
                 _chaoInstanciado = true;
+
                 GameObject novoChao = Instantiate(_gameController._chaoPrefab);
                 novoChao.transform.position = new Vector3(
                     transform.position.x + _gameController._chaoTamanho,
                     transform.position.y,
-                    0
+                    transform.position.z
                 );
 
                 Debug.Log("O Chão foi Instanciado!");
@@ -43,6 +48,6 @@ public class RepetirChao : MonoBehaviour
 
     void MoveChao()
     {
-        transform.Translate(Vector2.left * _gameController._chaoVelocidade * Time.deltaTime);
+        transform.Translate(Vector2.left * _gameController._chaoVelocidade * Time.fixedDeltaTime);
     }
 }

@@ -1,2 +1,14 @@
 fileFormatVersion: 2
 guid: 57557413ce7d64547a9164266934bb77
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _chaoPrefab: {instanceID: 0}
+  - _obstaculoPrefab: {instanceID: 0}
+  - _pontoDeSpawn: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
