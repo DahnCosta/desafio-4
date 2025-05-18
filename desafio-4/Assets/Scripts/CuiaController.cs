@@ -5,6 +5,8 @@ public class CuiaController : MonoBehaviour
     private GameController _gameController;
     private CameraShaker _cameraShaker;
 
+    public float velocidade = 5f; // Agora a velocidade pode ser atualizada ao instanciar
+
     void Start()
     {
         _gameController = GameObject.FindFirstObjectByType<GameController>();
@@ -18,7 +20,7 @@ public class CuiaController : MonoBehaviour
 
     void MoveObjeto()
     {
-        transform.Translate(Vector2.left * 5f * Time.fixedDeltaTime);
+        transform.Translate(Vector2.left * velocidade * Time.fixedDeltaTime);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -27,6 +29,11 @@ public class CuiaController : MonoBehaviour
         {
             Debug.Log("Tocou no Obstáculo");
             _cameraShaker.ShakeIt();
+
+            if (_gameController != null)
+            {
+                _gameController.PerderVida();
+            }
         }
     }
 
