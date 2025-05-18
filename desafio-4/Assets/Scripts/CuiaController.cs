@@ -4,13 +4,15 @@ public class CuiaController : MonoBehaviour
 {
     private GameController _gameController;
     private CameraShaker _cameraShaker;
+    private AudioController _audioController;  // Referência ao AudioController
 
-    public float velocidade = 5f; // Agora a velocidade pode ser atualizada ao instanciar
+    public float velocidade = 5f; // Velocidade do movimento para a esquerda
 
     void Start()
     {
-        _gameController = GameObject.FindFirstObjectByType<GameController>();
-        _cameraShaker = GameObject.FindFirstObjectByType<CameraShaker>();
+        _gameController = GameObject.FindObjectOfType<GameController>();
+        _cameraShaker = GameObject.FindObjectOfType<CameraShaker>();
+        _audioController = GameObject.FindObjectOfType<AudioController>();  // Pega o AudioController
     }
 
     void FixedUpdate()
@@ -28,12 +30,22 @@ public class CuiaController : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Debug.Log("Tocou no Obstáculo");
-            _cameraShaker.ShakeIt();
 
-            if (_gameController != null)
+            // Shake da câmera
+            _cameraShaker?.ShakeIt();
+
+            // Tocar som de dano
+            if (_audioController != null)
             {
-                _gameController.PerderVida();
+                _audioController.TocarSomDano();
             }
+            else
+            {
+                Debug.LogWarning("AudioController não encontrado no CuiaController.");
+            }
+
+            // Perder vida
+            _gameController?.PerderVida();
         }
     }
 

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1848323806377912148}
   m_Layer: 0
   m_Name: serpente1_0
-  m_TagString: Untagged
+  m_TagString: Inimigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,7 +125,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.2507096, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -135,7 +135,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.97, y: 0.71}
+  m_Size: {x: 1.4685808, y: 0.71}
   m_EdgeRadius: 0
 --- !u!50 &2645879839997081105
 Rigidbody2D:
@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b266bbf461043f44a4833d1be228bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocidade: 5
 --- !u!95 &1848323806377912148
 Animator:
   serializedVersion: 7
