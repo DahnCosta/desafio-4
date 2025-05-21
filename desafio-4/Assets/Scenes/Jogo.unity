@@ -946,6 +946,7 @@ MonoBehaviour:
   incrementoVelocidade: 1
   pontosTexto: {fileID: 1742328918}
   vidasTexto: {fileID: 994749296}
+  painelGameOver: {fileID: 0}
   _pontoDeSpawn: {fileID: 236421056}
 --- !u!4 &1199177140
 Transform:

@@ -4,7 +4,7 @@ public class Player_Controller : MonoBehaviour
 {
     public float speed = 5f;
     public bool isGrounded = true;
-    public float jumpForce = 650f;
+    public float jumpForce = 300f;
 
     private Animator anim;
     private Rigidbody2D rig;
